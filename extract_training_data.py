@@ -23,25 +23,20 @@ def DB():
 				status.append(str(i))
 				new_status.append(i)
 				text=re.findall("'full_text': '(.+?)'",str(text_))
-				#print (y)
 				try:
 					texto=str(text[0])
 					texto=texto.replace('"','')
-					#print (text[0])
 					txt.append(texto)
 				except Exception as e:
-					#print (e)
-					#print('void')	
 					txt.append('VOID')
 				y+=1
 		except Exception as e:
-			#print (e)
 			if 'Rate limit exceeded' in str(e):
 				print ('Rate limit exceeded')
 			if i not in no_status:
 				no_status.append(i)
 	x=0
-	with open('status_raw.db','a') as csvfile:
+	with open('status_raw.db','a') as csvfile: #CREATE THE "status_raw.db" IN ADVANCE
 			fieldnames = ['ID','TEXT']
 			writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 			for i in new_status:
