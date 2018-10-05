@@ -32,7 +32,7 @@ d=clean()
 if len(d)>0:
 	d=clean()
 
-with open('status_clean.db','a') as csvfile:
+with open('status_clean.db','a') as csvfile: #CREATE THE "status_clean.db" IN ADVANCE
 	fieldnames = ['ID','TEXT']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	for i in txt:
